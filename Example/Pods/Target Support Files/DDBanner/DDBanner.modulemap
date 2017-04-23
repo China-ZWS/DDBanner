@@ -1,0 +1,6 @@
+framework module DDBanner {
+  umbrella header "DDBanner-umbrella.h"
+
+  export *
+  module * { export * }
+}

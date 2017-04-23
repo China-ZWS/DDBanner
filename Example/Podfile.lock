@@ -1,0 +1,16 @@
+PODS:
+  - DDBanner (0.1.0)
+
+DEPENDENCIES:
+  - DDBanner (from `../`)
+
+EXTERNAL SOURCES:
+  DDBanner:
+    :path: ../
+
+SPEC CHECKSUMS:
+  DDBanner: e3b062155b6ce353bd57d1bccd49a9a0e2846c67
+
+PODFILE CHECKSUM: bd1bfa386ef852cb16ef1957cddd9361f8f60d44
+
+COCOAPODS: 1.2.0

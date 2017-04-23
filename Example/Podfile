@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DDBanner_Example' do
+  pod 'DDBanner', :path => '../'
+
+  target 'DDBanner_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
