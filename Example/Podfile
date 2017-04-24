@@ -2,7 +2,7 @@ use_frameworks!
 
 target 'DDBanner_Example' do
   pod 'DDBanner', :path => '../'
-
+  pod 'YYWebImage', '~> 1.0.5'
   target 'DDBanner_Tests' do
     inherit! :search_paths
 

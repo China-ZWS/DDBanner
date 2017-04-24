@@ -24,6 +24,8 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		E4EB76F71EAD9E0A007AECDE /* DDBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EB76F61EAD9E0A007AECDE /* DDBannerViewController.m */; };
+		E4EB76FB1EADA3D6007AECDE /* 组-49@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4EB76FA1EADA3D6007AECDE /* 组-49@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		076038206ABE979CA031BD97 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		076038206ABE979CA031BD97 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2F12BD823F7924ECDC6F2575 /* Pods-DDBanner_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDBanner_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDBanner_Tests/Pods-DDBanner_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3FBF074AF261837259E59B7E /* Pods-DDBanner_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDBanner_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDBanner_Tests/Pods-DDBanner_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5778E71F7B6E5C6043CB3CFB /* Pods-DDBanner_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDBanner_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDBanner_Example/Pods-DDBanner_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,11 +63,14 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		85894D98FB9835750B0B40B9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		85894D98FB9835750B0B40B9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8EC1462E36DABCFF053F2DB6 /* Pods_DDBanner_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDBanner_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A99048DFBCF96817F82D99 /* Pods-DDBanner_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDBanner_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDBanner_Example/Pods-DDBanner_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		F01E7BB02EB03E6E64B42098 /* DDBanner.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = DDBanner.podspec; path = ../DDBanner.podspec; sourceTree = "<group>"; };
+		E4EB76F51EAD9E0A007AECDE /* DDBannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBannerViewController.h; sourceTree = "<group>"; };
+		E4EB76F61EAD9E0A007AECDE /* DDBannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBannerViewController.m; sourceTree = "<group>"; };
+		E4EB76FA1EADA3D6007AECDE /* 组-49@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "组-49@2x.png"; sourceTree = "<group>"; };
+		F01E7BB02EB03E6E64B42098 /* DDBanner.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DDBanner.podspec; path = ../DDBanner.podspec; sourceTree = "<group>"; };
 		F62AB44476182A3CFA99EB8F /* Pods_DDBanner_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDBanner_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,11 +137,14 @@
 		6003F593195388D20070C39A /* Example for DDBanner */ = {
 			isa = PBXGroup;
 			children = (
+				E4EB76FA1EADA3D6007AECDE /* 组-49@2x.png */,
 				6003F59C195388D20070C39A /* DDAppDelegate.h */,
 				6003F59D195388D20070C39A /* DDAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* DDViewController.h */,
 				6003F5A6195388D20070C39A /* DDViewController.m */,
+				E4EB76F51EAD9E0A007AECDE /* DDBannerViewController.h */,
+				E4EB76F61EAD9E0A007AECDE /* DDBannerViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -279,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4EB76FB1EADA3D6007AECDE /* 组-49@2x.png in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
@@ -394,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4EB76F71EAD9E0A007AECDE /* DDBannerViewController.m in Sources */,
 				6003F59E195388D20070C39A /* DDAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* DDViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
