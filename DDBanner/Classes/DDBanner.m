@@ -93,6 +93,8 @@
 {
     [super layoutSubviews];
     self.flowLayout.itemSize = self.frame.size;
+    _containerView.backgroundColor = self.backgroundColor;
+
 }
 
 - (UICollectionViewFlowLayout *)flowLayout {
@@ -110,7 +112,6 @@
     if (!_containerView) {
         _containerView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.flowLayout];
         _containerView.bounces = NO;
-        _containerView.backgroundColor = [UIColor whiteColor];
         _containerView.pagingEnabled = YES;
         _containerView.showsHorizontalScrollIndicator = NO;
         _containerView.showsVerticalScrollIndicator = NO;
@@ -125,6 +126,10 @@
 #pragma mark - collectionView delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
+    if (!_imageUrls.count) {
+        return 0;
+    }
     if(_imageUrls.count == 1) {
         return 1;
     }
@@ -133,7 +138,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DDBannerItem *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"banner" forIndexPath:indexPath];
-
+    cell.contentView.backgroundColor = _itemBackgroundColor;
     id data = [self getImageUrlForIndexPath:indexPath];
     if ([self.delegate respondsToSelector:@selector(imageView:loadImageForData:)]) {
         [self.delegate imageView:cell.imageView loadImageForData:data];

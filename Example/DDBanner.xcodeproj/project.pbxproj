@@ -258,6 +258,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "China-ZWS";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = YHC774QMEV;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -534,6 +537,7 @@
 			baseConfigurationReference = C6A99048DFBCF96817F82D99 /* Pods-DDBanner_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YHC774QMEV;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DDBanner/DDBanner-Prefix.pch";
 				INFOPLIST_FILE = "DDBanner/DDBanner-Info.plist";
@@ -549,6 +553,7 @@
 			baseConfigurationReference = 5778E71F7B6E5C6043CB3CFB /* Pods-DDBanner_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YHC774QMEV;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DDBanner/DDBanner-Prefix.pch";
 				INFOPLIST_FILE = "DDBanner/DDBanner-Info.plist";

@@ -74,10 +74,7 @@
     _pageControl.numberOfPages = datas.count;
     _pageControl.currentPage = 0;
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [_banner configBanner:datas];
-        
-    });
+    [_banner configBanner:datas];
 
 }
 

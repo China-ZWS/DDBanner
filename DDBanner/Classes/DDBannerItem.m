@@ -21,7 +21,6 @@
         _imageView = UIImageView.new;
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         _imageView.clipsToBounds = YES ;
-        self.contentView.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:_imageView];
     }
     return self;
@@ -30,7 +29,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
     _imageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
 }
 

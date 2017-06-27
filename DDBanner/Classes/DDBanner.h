@@ -47,6 +47,7 @@ typedef NS_ENUM(NSInteger, DDBannerScrollDirection) {
 @property (nonatomic, weak) id<DDBannerDelegate> delegate;
 @property (nonatomic, assign) BOOL canLoop;
 @property (nonatomic, assign) CGFloat duration;                        //!< 自动换页时间间隔，0s 不自动滚动
+@property (nonatomic, strong) UIColor *itemBackgroundColor;                //!< item背景颜色
 @property (nonatomic, assign) DDBannerScrollDirection scrollDirection; //!< 默认 横向
 
 - (instancetype)initWithFrame:(CGRect)frame
