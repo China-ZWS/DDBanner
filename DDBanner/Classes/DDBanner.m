@@ -36,11 +36,12 @@
     [self removeTimer];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame canLoop:(BOOL)canLoop duration:(NSInteger)duration;
+- (instancetype)initWithFrame:(CGRect)frame canLoop:(BOOL)canLoop allowCycle:(BOOL)allowCycle duration:(NSInteger)duration;
 {
     if ((self = [super initWithFrame:frame])) {
         _canLoop = canLoop;
         _duration = duration;
+        _allowCycle = allowCycle;
         self.backgroundColor = [UIColor whiteColor];
         [self layoutViews];
         [self startLoop];
@@ -62,11 +63,15 @@
 {
     _imageUrls = imageArray;
     [_containerView reloadData];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (imageArray.count > 1) {
-            [_containerView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
-        }
-    });
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (_allowCycle) {
+                if (imageArray.count > 1) {
+                    [_containerView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+                }
+            } else {
+                [_containerView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+            }
+        });
 }
 
 - (DDBanner *(^)(UIView *view))addPageControl;
@@ -94,7 +99,6 @@
     [super layoutSubviews];
     self.flowLayout.itemSize = self.frame.size;
     _containerView.backgroundColor = self.backgroundColor;
-
 }
 
 - (UICollectionViewFlowLayout *)flowLayout {
@@ -127,13 +131,18 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    if (!_imageUrls.count) {
-        return 0;
+    if (_allowCycle) {
+        if (!_imageUrls.count) {
+            return 0;
+        }
+        else if(_imageUrls.count == 1) {
+            return 1;
+        } else {
+            return _imageUrls.count + 2;
+        }
+    } else {
+        return _imageUrls.count;
     }
-    if(_imageUrls.count == 1) {
-        return 1;
-    }
-    return _imageUrls.count + 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -153,15 +162,20 @@
 }
 
 - (NSString *)getImageUrlForIndexPath:(NSIndexPath *)indexPath {
-    if (!(_imageUrls.count > 0)) {
-        return nil;
-    }
-    if (indexPath.row == 0){
-        return _imageUrls.lastObject;
-    } else if (indexPath.row - 1 == _imageUrls.count){
-        return _imageUrls.firstObject;
-    }else {
-        return _imageUrls[indexPath.row - 1];
+  
+    if (_allowCycle) {
+        if (!(_imageUrls.count > 0)) {
+            return nil;
+        }
+        if (indexPath.row == 0){
+            return _imageUrls.lastObject;
+        } else if (indexPath.row - 1 == _imageUrls.count){
+            return _imageUrls.firstObject;
+        }else {
+            return _imageUrls[indexPath.row - 1];
+        }
+    } else {
+        return _imageUrls[indexPath.row];
     }
 }
 
@@ -187,33 +201,39 @@
 
 - (void)changeCurrentPage:(NSInteger )currentPage scrollView:(UIScrollView *)scrollView
 {
-    _currentPage = currentPage - 1;
 
-
-    if (currentPage == 0)
-    {
-        CGFloat newOffSetLength =  self.unitLength * (_imageUrls.count);
-        CGPoint offSet;
-        if (self.scrollDirection == DDBannerScrollDirectionHorizontal) {
-            offSet = CGPointMake(newOffSetLength, 0);
-        }else{
-            offSet = CGPointMake(0,newOffSetLength);
+    if (_allowCycle) {
+        if (currentPage == 0)
+        {
+            CGFloat newOffSetLength =  self.unitLength * (_imageUrls.count);
+            CGPoint offSet;
+            if (self.scrollDirection == DDBannerScrollDirectionHorizontal) {
+                offSet = CGPointMake(newOffSetLength, 0);
+            }else{
+                offSet = CGPointMake(0,newOffSetLength);
+            }
+            scrollView.contentOffset = offSet;
+            _currentPage = _imageUrls.count;
         }
-        scrollView.contentOffset = offSet;
-        _currentPage = _imageUrls.count;
-    }
-    else if (currentPage == _imageUrls.count + 1)
-    {
-        CGPoint offSet;
-        if (self.scrollDirection == DDBannerScrollDirectionHorizontal) {
-            offSet = CGPointMake(self.unitLength, 0);
-        }else{
-            offSet = CGPointMake(0, self.unitLength);
+        else if (currentPage == _imageUrls.count + 1)
+        {
+            CGPoint offSet;
+            if (self.scrollDirection == DDBannerScrollDirectionHorizontal) {
+                offSet = CGPointMake(self.unitLength, 0);
+            }else{
+                offSet = CGPointMake(0, self.unitLength);
+            }
+            
+            scrollView.contentOffset = offSet;
+            _currentPage = 0;
+        } else {
+            _currentPage = currentPage - 1;
         }
-
-        scrollView.contentOffset = offSet;
-        _currentPage = 0;
+    } else {
+        _currentPage = currentPage;
     }
+
+
 
     if ([self.delegate respondsToSelector:@selector(bannerView:currentPageAtIndex:)]) {
         [_delegate bannerView:self currentPageAtIndex:_currentPage];
@@ -237,7 +257,7 @@
 
 - (void)addTimer
 {
-    if (!_canLoop || _duration == 0) return;
+    if (!_canLoop || _duration == 0 || !_allowCycle) return;
 
     if (_timer) return  ;
 

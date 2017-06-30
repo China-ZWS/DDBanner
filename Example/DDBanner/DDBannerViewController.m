@@ -30,6 +30,7 @@
 
 - (void)dismiss {
     [self dismissViewControllerAnimated:YES completion:NULL];
+    [_banner stopLoop];
 }
 
 - (UIPageControl *)pageControl {
@@ -50,7 +51,7 @@
         if (_banner) {
             view = _banner;
         } else {
-            view = [[DDBanner alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 200) canLoop:YES duration:3.f];
+            view = [[DDBanner alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 200) canLoop:YES allowCycle:NO duration:3.f];
             view.delegate = self;
             view.scrollDirection = _scrollDirection;
             view.addPageControl(self.pageControl);
